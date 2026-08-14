@@ -69,6 +69,7 @@ export function BulkOrders() {
             <img
               src={images.warehouse}
               alt="Bulk frozen fruit pulp packaging and warehouse distribution"
+              loading="lazy"
               className="h-[380px] w-full object-cover sm:h-[460px]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent" />

@@ -35,6 +35,7 @@ export function About() {
             <img
               src={images.aboutFactory}
               alt="Nitin Foods cold storage and processing facility"
+              loading="lazy"
               className="h-[420px] w-full object-cover sm:h-[520px]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/50 via-transparent to-transparent" />

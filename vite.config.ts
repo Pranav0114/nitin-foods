@@ -11,4 +11,19 @@ export default defineConfig({
       '@': path.resolve(import.meta.dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id: string) {
+          if (!id.includes('node_modules')) return
+          if (id.includes('framer-motion')) return 'vendor-motion'
+          if (id.includes('gsap')) return 'vendor-gsap'
+          if (id.includes('swiper')) return 'vendor-swiper'
+          if (id.includes('react-router') || id.includes('/react/') || id.includes('/react-dom/') || id.includes('scheduler')) {
+            return 'vendor-react'
+          }
+        },
+      },
+    },
+  },
 })

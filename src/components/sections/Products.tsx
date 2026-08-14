@@ -58,6 +58,7 @@ export function Products() {
                   <img
                     src={p.image}
                     alt={p.name}
+                    loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/90 via-forest-dark/20 to-transparent" />

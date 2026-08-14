@@ -27,7 +27,7 @@ export function Industries() {
               <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-gold">
                 <ind.icon size={20} />
               </span>
-              <p className="text-sm font-semibold text-cream">{ind.name}</p>
+              <h3 className="text-sm font-semibold text-cream" style={{ fontFamily: "var(--font-sans)" }}>{ind.name}</h3>
               <p className="text-xs leading-relaxed text-cream/50">{ind.description}</p>
             </motion.div>
           ))}

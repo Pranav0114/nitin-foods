@@ -46,7 +46,7 @@ export function QualityAssurance() {
               <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/15 text-gold">
                 <p.icon size={20} />
               </span>
-              <p className="mt-4 text-sm font-semibold text-cream">{p.title}</p>
+              <h3 className="mt-4 text-sm font-semibold text-cream" style={{ fontFamily: "var(--font-sans)" }}>{p.title}</h3>
               <p className="mt-1.5 text-xs leading-relaxed text-cream/55">{p.description}</p>
             </motion.div>
           ))}

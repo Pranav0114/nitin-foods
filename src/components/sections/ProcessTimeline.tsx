@@ -80,7 +80,7 @@ export function ProcessTimeline() {
                   <p className="mt-4 font-display text-2xl font-bold text-forest/20">
                     {step.step}
                   </p>
-                  <p className="mt-1 text-sm font-semibold text-forest-dark">{step.title}</p>
+                  <h3 className="mt-1 text-sm font-semibold text-forest-dark" style={{ fontFamily: "var(--font-sans)" }}>{step.title}</h3>
                   <p className="mt-1.5 text-xs leading-relaxed text-ink/50">{step.description}</p>
                 </div>
               ))}

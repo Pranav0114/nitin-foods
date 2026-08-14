@@ -1,32 +1,46 @@
-# React + TypeScript + Vite
+# Nitin Foods
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Premium frozen food supplier marketing site — React 19, Vite, TypeScript, Tailwind CSS v4, Framer Motion, GSAP, and Lenis smooth scroll.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Build
+
+```bash
+npm run build
+```
+
+This runs `tsc -b && vite build`, then a **prerender step** that boots the built
+site in headless Chromium (via Playwright), scrolls through the whole page to
+trigger all scroll-based animations, and writes the fully-rendered HTML back
+into `dist/index.html`. This is what search engines, social-share bots and the
+first paint for real users see — without it, `dist/index.html` would ship an
+empty `<div id="root"></div>` since this is a client-rendered SPA.
+
+- First time only: `npx playwright install chromium` (downloads a local
+  Chromium build the prerender script drives).
+- To build without the prerender step (faster, for local debugging):
+  `npm run build:no-prerender`.
+- To re-run just the prerender step against an existing `dist/`:
+  `npm run prerender`.
+
+## Preview the production build
+
+```bash
+npm run preview
+```
+
+## SEO notes
+
+- `index.html` carries the canonical URL, Open Graph/Twitter tags, and
+  `Organization` JSON-LD — update these (and `public/robots.txt` /
+  `public/sitemap.xml`) if the production domain changes from
+  `www.nitinfoods.com`.
+- `public/og-image.jpg` is the social share image (1200×630).
+- Product photography in `src/data/images.ts` is placeholder stock photography
+  for layout purposes — swap for real product/facility photos before launch.
