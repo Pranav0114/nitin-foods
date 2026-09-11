@@ -14,13 +14,15 @@ const spotlight = products.filter((p) =>
   ["alphonso-mango-pulp", "strawberry-pulp", "dragon-fruit-pulp", "red-guava-pulp", "green-peas", "broccoli-florets"].includes(p.id)
 );
 
+const filterCategories = categories.filter((c) => c !== "Bulk & Industrial");
+
 export function Products() {
-  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [activeCategory, setActiveCategory] = useState<string>(filterCategories[0]);
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
-      const matchesCategory = activeCategory === "All" || p.category === activeCategory;
+      const matchesCategory = p.category === activeCategory;
       const matchesQuery = p.name.toLowerCase().includes(query.toLowerCase());
       return matchesCategory && matchesQuery;
     });
@@ -62,6 +64,9 @@ export function Products() {
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/90 via-forest-dark/20 to-transparent" />
+                  <span className="absolute right-4 top-4 rounded-full bg-gold/95 px-3 py-1 font-display text-[10px] font-bold uppercase tracking-wider text-forest-dark">
+                    Great Purandhar
+                  </span>
                   <div className="absolute inset-x-0 bottom-0 p-6">
                     <p className="text-[10px] font-semibold uppercase tracking-widest text-gold">
                       {p.category}
@@ -90,7 +95,7 @@ export function Products() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-2">
-            {["All", ...categories].map((cat) => (
+            {filterCategories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}

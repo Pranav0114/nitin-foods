@@ -49,6 +49,9 @@ export function Footer() {
           <p className="font-display text-2xl font-bold">
             Nitin <span className="text-gold">Foods</span>
           </p>
+          <p className="mt-1 text-xs font-medium uppercase tracking-wider text-cream/40">
+            Home of the Great Purandhar brand
+          </p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-cream/60">
             Premium frozen fruit pulps, slices, vegetables, crushes and jams —
             hygienically processed and cold-chain fresh, trusted by
@@ -118,15 +121,15 @@ export function Footer() {
           <ul className="mt-4 space-y-3 text-sm text-cream/65">
             <li className="flex items-start gap-2">
               <FaMapMarkerAlt className="mt-1 shrink-0 text-gold" size={13} />
-              MIDC Industrial Area, Nashik, Maharashtra, India
+              Purandhar, Pune, Maharashtra 412205, India
             </li>
             <li className="flex items-center gap-2">
               <FaPhoneAlt className="shrink-0 text-gold" size={12} />
-              +91 99999 99999
+              +91 93227 23352
             </li>
             <li className="flex items-center gap-2">
               <FaEnvelope className="shrink-0 text-gold" size={12} />
-              sales@nitinfoods.example
+              nitinfoods1411@gmail.com
             </li>
           </ul>
 

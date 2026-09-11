@@ -75,7 +75,8 @@ export function About() {
             freshest frozen fruits and vegetables — processed hygienically,
             frozen at peak ripeness, and delivered through an unbroken cold
             chain. Every batch is a promise of consistency, purity and
-            export-grade quality.
+            export-grade quality — manufactured by Nitin Foods and trusted in
+            the market as Great Purandhar.
           </motion.p>
 
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">

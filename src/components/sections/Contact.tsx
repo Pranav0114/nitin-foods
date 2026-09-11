@@ -13,9 +13,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
 const contactDetails = [
-  { icon: FaPhoneAlt, label: "Phone", value: "+91 99999 99999" },
-  { icon: FaEnvelope, label: "Email", value: "sales@nitinfoods.example" },
-  { icon: FaMapMarkerAlt, label: "Address", value: "MIDC Industrial Area, Nashik, Maharashtra, India" },
+  { icon: FaPhoneAlt, label: "Phone", value: "+91 93227 23352" },
+  { icon: FaEnvelope, label: "Email", value: "nitinfoods1411@gmail.com" },
+  { icon: FaMapMarkerAlt, label: "Address", value: "Purandhar, Pune, Maharashtra 412205, India" },
 ];
 
 export function Contact() {
@@ -62,7 +62,7 @@ export function Contact() {
               ))}
 
               <a
-                href="https://wa.me/919999999999"
+                href="https://wa.me/919322723352"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] p-4 text-sm font-semibold text-white shadow-sm transition-transform hover:scale-[1.02]"
@@ -74,7 +74,7 @@ export function Contact() {
             <div className="mt-6 overflow-hidden rounded-2xl shadow-sm ring-1 ring-forest/5">
               <iframe
                 title="Nitin Foods location"
-                src="https://maps.google.com/maps?q=Nashik%2C%20Maharashtra%2C%20India&t=&z=11&ie=UTF8&iwloc=&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121208.83600996634!2d73.94718189726562!3d18.311843500000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2fb006f1d45e9%3A0xf13bfc9cdc406ab9!2sNitin%20Foods!5e0!3m2!1sen!2sin!4v1789116779844!5m2!1sen!2sin"
                 width="100%"
                 height="260"
                 style={{ border: 0 }}

@@ -46,8 +46,11 @@ export function ProductCard({ product, index }: ProductCardProps) {
           className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/70 via-forest-dark/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-        <span className="absolute left-4 top-4 rounded-full bg-cream/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-forest-dark backdrop-blur-sm">
+        <span className="absolute left-4 top-4 max-w-[calc(100%-2rem)] truncate rounded-full bg-cream/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-forest-dark backdrop-blur-sm">
           {product.category}
+        </span>
+        <span className="absolute bottom-4 right-4 rounded-full bg-gold/95 px-3 py-1 font-display text-[10px] font-bold uppercase tracking-wider text-forest-dark">
+          Great Purandhar
         </span>
       </div>
 
