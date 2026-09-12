@@ -18,11 +18,51 @@ const contactDetails = [
   { icon: FaMapMarkerAlt, label: "Address", value: "Purandhar, Pune, Maharashtra 412205, India" },
 ];
 
+const WHATSAPP_NUMBER = "919322723352";
+
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const field = (key: string) => ((data.get(key) as string) || "").trim();
+
+    const lines = [
+      "New enquiry from the Nitin Foods website:",
+      "",
+      `Name: ${field("name")}`,
+      field("company") && `Company: ${field("company")}`,
+      `Phone: ${field("phone")}`,
+      `Email: ${field("email")}`,
+      field("category") && `Product Category: ${field("category")}`,
+      field("quantity") && `Required Quantity: ${field("quantity")}`,
+      field("message") && `Message: ${field("message")}`,
+    ].filter(Boolean).join("\n");
+
+    // Open WhatsApp with the enquiry pre-filled — the visitor still has to
+    // hit send themselves, since there's no WhatsApp Business API set up.
+    // Must happen synchronously so browsers don't block it as a popup.
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+    // Also log it with Netlify Forms as a backup, in case the visitor
+    // doesn't complete the WhatsApp step.
+    const params = new URLSearchParams();
+    for (const [key, value] of data.entries()) {
+      params.append(key, value as string);
+    }
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params.toString(),
+    }).catch(() => {});
+
+    form.reset();
     setSubmitted(true);
   };
 
@@ -92,9 +132,20 @@ export function Contact() {
             className="lg:col-span-3"
           >
             <form
+              name="business-inquiry"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
               className="rounded-3xl bg-white p-6 shadow-premium sm:p-8"
             >
+              <input type="hidden" name="form-name" value="business-inquiry" />
+              <p className="hidden">
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
+
               <h3 className="font-display text-xl font-semibold text-forest-dark">
                 Business &amp; Bulk Order Inquiry
               </h3>
@@ -153,7 +204,7 @@ export function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-sm font-medium text-emerald"
                   >
-                    Thank you! We'll be in touch shortly.
+                    Thanks! We've opened WhatsApp with your enquiry — just hit send there.
                   </motion.p>
                 )}
               </div>
